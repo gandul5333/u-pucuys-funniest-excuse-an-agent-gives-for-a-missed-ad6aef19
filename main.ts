@@ -33,6 +33,8 @@ if (trimmed.includes("\n") || trimmed.includes("\r")) {
   console.error("error: entry line must be a single line");
   process.exit(1);
 }
+// The judge reads the line cold with no context: exactly one sentence,
+// so exactly one terminal mark, and it must end the line.
 const sentenceEnders = (trimmed.match(/[.!?]/g) ?? []).length;
 if (sentenceEnders !== 1 || !/[.!?]$/.test(trimmed)) {
   console.error("error: entry line must be a single sentence");
